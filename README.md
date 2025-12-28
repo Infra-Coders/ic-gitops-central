@@ -26,7 +26,14 @@
 - Flux also applies a minimal nginx example at `./apps/demo-nginx`.
 - Quick check:
   - `podman_kubectl -n demo get pods`
-  - `podman_kubectl -n demo port-forward svc/demo-nginx 8080:80` then `curl http://localhost:8080`.
+  - `kubectl -n demo port-forward svc/demo-nginx 8080:80` then `curl http://localhost:8080`.
+
+## Monitoring (kube-prometheus-stack)
+
+- Port-forward Grafana: `kubectl -n monitoring port-forward svc/monitoring-kube-prometheus-stack-grafana 3000:80` then open http://localhost:3000
+- Credentials (stored in the chart-managed secret):
+  - Admin user: `podman_kubectl -n monitoring get secret monitoring-kube-prometheus-stack-grafana -o jsonpath='{.data.admin-user}' | base64 -d; echo`
+  - Admin password: `podman_kubectl -n monitoring get secret monitoring-kube-prometheus-stack-grafana -o jsonpath='{.data.admin-password}' | base64 -d; echo`
 
 ## Metrics Server
 

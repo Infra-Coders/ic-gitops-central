@@ -1,0 +1,22 @@
+---
+apiVersion: source.extensions.fluxcd.io/v1beta1
+kind: ArtifactGenerator
+metadata:
+  name: artifacts-gitops-central
+  namespace: flux-system
+spec:
+  sources:
+    - alias: gitops-central
+      kind: GitRepository
+      name: flux-system
+  artifacts:
+    - name: infrastructure
+      originRevision: "@gitops-central"
+      copy:
+        - from: "@gitops-central/infrastructure/**"
+          to: "@artifact/"
+    - name: apps
+      originRevision: "@gitops-central"
+      copy:
+        - from: "@gitops-central/apps/base/**"
+          to: "@artifact/base/"

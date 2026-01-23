@@ -21,3 +21,16 @@ spec:
   path: ./clusters/dev/luke
   prune: true
   interval: 2m
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: cert-manager
+      namespace: cert-manager
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: cert-manager-webhook
+      namespace: cert-manager
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: cert-manager-cainjector
+      namespace: cert-manager

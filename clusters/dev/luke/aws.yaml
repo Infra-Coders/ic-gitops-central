@@ -6,7 +6,7 @@ metadata:
 spec:
   url: https://github.com/Infra-Coders/ic-aws-stack.git
   ref:
-    tag: v0.0.1
+    branch: feature/add-cert-manager
   interval: 2m
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1

@@ -6,7 +6,7 @@ metadata:
 spec:
   url: https://github.com/Infra-Coders/ic-aws-stack.git
   ref:
-    tag: v0.0.1
+    tag: v0.0.2
   interval: 2m
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: external-dns-config
+  namespace: kube-system
+data:
+  values.yaml: |
+    domainFilters:
+      - karol.infra-coders.com
+    txtOwnerId: Z013659138P2JJXPI9Q7Q
